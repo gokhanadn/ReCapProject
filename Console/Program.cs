@@ -12,16 +12,31 @@ namespace Console
 
             foreach (var car in carManager.GetAll())
             {
-                System.Console.WriteLine(car.Description, car.BrandId);
+                System.Console.WriteLine("Araba ID: " + car.Id + " " +
+                                        "Araba Modeli: " + car.Description + " " +
+                                        "Araba Marka ID: " + car.BrandId + " " +
+                                        "Araba Renk ID: " + car.ColorId + " " +
+                                        "Araba Günlük Ücreti: " + car.DailyPrice);
             }
             System.Console.WriteLine("-----------------------\n");
 
-            System.Console.WriteLine("Get By ID\n");
+            System.Console.WriteLine("Get By ID");
 
-            foreach (var car1 in carManager.GetById(2))
+            System.Console.WriteLine("------------");
+
+            //foreach (var car1 in carManager.GetById(2))
+            //{
+            //    System.Console.WriteLine("Araba ID: " + car1.Id + " " + "Araba Modeli: " + car1.Description);
+            //}
+
+            for (int ID = 1; ID <= carManager.GetAll().Count; ID++)
             {
-                System.Console.WriteLine(car1.Description, car1.BrandId);
+                foreach (var car1 in carManager.GetById(ID))
+                {
+                    System.Console.WriteLine("Araba ID: " + car1.Id + " " + "Araba Modeli: " + car1.Description);
+                }
             }
+
         }
     }
 }
